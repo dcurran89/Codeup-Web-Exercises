@@ -1,0 +1,99 @@
+/* first styled header example */
+.fancy-header {
+    color: blue;
+    text-decoration: underline;
+}
+
+#container>h1 {
+    color:white;
+}
+
+
+/******* ELEMENT SELECTORS ********/
+body {
+    font-variant: small-caps;
+    background-color: white;
+    background-size: auto;
+    font-family: serif;
+}
+h1, h2 {
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+}
+p {
+    color: white;
+    text-align: center;
+}
+ol {
+    color: white;
+    list-style: gurmukhi;
+    display: table;
+    margin: 0 auto;
+    list-style-position: inside;
+}
+ul {
+    color: white;
+    list-style: square;
+    list-style-position: inside;
+    display: table;
+    margin: 0 auto;
+}
+table {
+    color: white;
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    border-style: outset;
+    font-family: ;
+}
+tr {
+    border-style: inset;
+    color: white;
+}
+blockquote {
+    color: white;
+    text-align: center;
+}
+dl {
+    color: white;
+    text-align: center;
+}
+img {
+    border-style: outset;
+    border-color: white;
+    border-width: 10px 10px 10px 10px;
+    width: 50%;
+    height: 50%;
+    margin-left: 300px;
+}
+/******* PSEUDO SELECTORS ********/
+a:visited{
+    font-family: helvetica;
+    color: white;
+}
+a:hover{
+    font-size: 2em;
+    color: white;
+}
+
+/******* CLASS SELECTORS ********/
+.main_div {
+    background-image: url("/img/iou.jpg");
+    background-attachment: fixed;
+    width: 85%;
+    margin: auto;
+}
+.bottom_div{
+    
+}
+.hello_world{
+
+}
+.vehicle{
+}
+
+#return_top{
+    text-align: center;
+}
+

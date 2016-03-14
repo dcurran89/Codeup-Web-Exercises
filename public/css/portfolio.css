@@ -1,0 +1,88 @@
+.separate {
+    background-image: url("/img/new_year_background.png");
+    margin-right: 40px;
+}
+.separate>h2 {
+    text-align: center;
+}
+.some_background {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.img-circle {
+    height: 250px;
+    width: 350px;
+}
+.navbar-brand>img {
+    height: 45px;
+    width: 45px;
+    position: relative;
+    bottom: 12px;
+}
+.col-md-4>p {
+    margin: 50px 50px 50px 50px;
+}
+.jumbotron {
+    background-color: #000;
+    height: 300px;
+    width: 700px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 20px;
+}
+.jumbotron>h1 {
+    text-align: center;
+    margin-top: 50px;
+    vertical-align: middle;  
+}
+.col-md-6 .col-md-offset-2 {
+    background-color: black;
+}
+.contact_info>p {
+    text-align: center;
+}
+.contact_info>h1 {
+    text-align: center;
+}
+.navbar {
+    background-color: black;
+    border: none;
+}
+.navbar-default{
+
+}
+p {
+    color: gray;
+}
+.short_text {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+body {
+    background-image: url("/img/earth_orbit.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+.row1col1{
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    /*border: 10px outset gray;*/
+    margin-left: 85px;
+}
+.row1col1>p{
+    color: black;
+    font-size: 15px;
+}
+.row1col2 {
+    background-color: white;
+    height: 400px;
+    width: 600px;
+    /*border: 10px outset gray;*/
+    margin-left: 85px;
+}
+.row1col2>p{
+    color: black;
+    font-size: 15px;
+}

@@ -1,0 +1,96 @@
+p {
+	color: white;
+	position: relative;
+	/*top: -20px;*/
+	bottom: 20px;
+	text-align: center;
+}
+a {
+	text-decoration: none;
+}
+.red{
+	border: 1px solid #000;
+	width: 150px;
+	height: 50px;
+	padding: 10px;
+	margin: 10px 0px 0px 0px;
+	font-weight: bold;
+	background-color: red;
+	border-radius: 25px;
+}
+.orange{
+	border: 1px solid #000;
+	width: 150px;
+	height: 50px;
+	padding: 10px;
+	margin: 10px 0px 0px 30px;
+	font-weight: bold;
+	background-color: orange;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.yellow{
+	border: 1px solid #000;
+	width: 150px;
+	height: 50px;
+	padding: 10px;
+	margin: 10px 0px 0px 60px;
+	font-weight: bold;
+	background-color: yellow;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.green{
+	border: 1px solid #000;
+	width: 150px;
+	height: 50px;
+	padding: 10px;
+	margin: 10px 0px 0px 90px;
+	font-weight: bold;
+	background-color: green;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.blue{
+	border: 1px solid #000;
+	width: 150px;
+	height: 50px;
+	padding: 10px;
+	margin: 10px 0px 0px 120px;
+	font-weight: bold;
+	background-color: blue;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.violet{
+	border: 1px solid #000;
+	width: 150px;
+	height: 50px;
+	padding: 10px;
+	margin: 10px 0px 0px 150px;
+	font-weight: bold;
+	background-color: violet;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.red_info{
+	color: transparent;
+	width: inherit;
+	height: inherit;
+}
+.red_info:hover{
+	color: white;
+	width: inherit;
+	height: inherit;
+}
+div.red:hover{
+	width: 150px;
+	height: 60px;
+}
+.red_hover{
+	color: white;
+}
+h1>a:hover{
+	color: blue;
+	text-decoration: underline;
+}

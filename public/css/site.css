@@ -1,0 +1,13 @@
+/* first styled header example */
+.fancy-header {
+    color: blue;
+    text-decoration: underline;
+}
+
+#container>h1 {
+    color:red;
+}
+
+body {
+    font-variant: small-caps;
+}

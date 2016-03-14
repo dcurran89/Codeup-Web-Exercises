@@ -1,0 +1,38 @@
+table, tr, th, td {
+    border: 1px solid #000;
+}
+table {
+   margin: 0 auto;
+}
+th {
+    font-weight: bold;
+    font-size: 25px;
+}
+tr {
+}
+td {
+    text-align: center;
+    background-color: gray;
+}
+h1 {
+    text-align: center;
+}
+body {
+    background-image: url("/img/concrete.png");
+    background-attachment: fixed;
+    background-size: auto;
+}
+td:hover:not(.channel) {
+    background-color: red;
+}
+.channel {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+.main_div {
+    
+}
+
+
+

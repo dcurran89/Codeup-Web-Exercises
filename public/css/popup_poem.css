@@ -1,0 +1,193 @@
+p{
+	color: white;
+	position: relative;
+	/*top: -20px;*/
+	bottom: 20px;
+	text-align: center;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background-color: ;
+}
+/********************* STYLE FOR BOXES GOING TO THE RIGHT **********************/
+/************* MAINLY THOUGHT OF FOR MARGINS GOING LEFT AND RIGHT **************/
+.main_div{
+	margin: 0 auto;
+
+}
+.picture{
+	display: inline;
+	float: right;
+	margin-top: -200px;
+}
+.red_right{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 0px;
+	font-weight: bold;
+	background-color: red;
+	border-radius: 25px;
+}
+/*.under_red_right{
+	width: 100%;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 0px;
+	font-weight: bold;
+	background-color: gray;
+}*/
+.orange_right{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 30px;
+	font-weight: bold;
+	background-color: orange;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.yellow_right{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 60px;
+	font-weight: bold;
+	background-color: yellow;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.green_right{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 90px;
+	font-weight: bold;
+	background-color: green;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.blue_right{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 120px;
+	font-weight: bold;
+	background-color: blue;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.violet_right{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 150px;
+	font-weight: bold;
+	background-color: violet;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+/********************* STYLE FOR BOXES GOING TO THE LEFT **********************/
+/************* MAINLY THOUGHT OF FOR MARGINS GOING LEFT AND RIGHT **************/
+.red_left{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 150px;
+	font-weight: bold;
+	background-color: red;
+	border-radius: 25px;
+}
+.orange_left{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 120px;
+	font-weight: bold;
+	background-color: orange;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.yellow_left{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 90px;
+	font-weight: bold;
+	background-color: yellow;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.green_left{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 60px;
+	font-weight: bold;
+	background-color: green;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.blue_left{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 30px;
+	font-weight: bold;
+	background-color: blue;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.violet_left{
+	border: 1px solid #000;
+	width: 150px;
+	height: 10px;
+	padding: 10px;
+	margin: 10px 0px 0px 0px;
+	font-weight: bold;
+	background-color: violet;
+	vertical-align: text-top;
+	border-radius: 25px;
+}
+.red_info{
+	color: transparent;
+	width: inherit;
+	height: inherit;
+}
+.red_info:hover{
+	color: white;
+	width: inherit;
+	height: inherit;
+}
+div.red_right:hover{
+	width: 150px;
+	height: 10px;
+}
+.red_right:hover{
+	color: white;
+}
+div.under_red_right:hover{
+	width: 100%;
+	height: 10px;
+}
+.under_red_right_hover{
+	color: white;
+}
+}
+h1>a:hover{
+	color: blue;
+	text-decoration: underline;
+}

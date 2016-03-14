@@ -1,0 +1,60 @@
+.separate {
+    background-image: url("/img/new_year_background.png");
+    margin-right: 40px;
+}
+.some_background {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.img-circle {
+    height: 300px;
+    width: auto;
+}
+.navbar-brand>img {
+    height: 45px;
+    width: 45px;
+    position: relative;
+    bottom: 12px;
+}
+.col-md-4>p {
+    margin: 50px 50px 50px 50px;
+}
+.jumbotron {
+    background-color: #000;
+    height: 500px;
+    text-align: center;
+    vertical-align: middle;
+    /*padding: 0px;*/
+}
+.jumbotron>h1 {
+    text-align: center;
+    margin-top: 50px;
+    vertical-align: middle;  
+}
+.col-md-6 .col-md-offset-2 {
+    background-color: black;
+}
+.contact_info>p {
+    text-align: center;
+}
+.contact_info>h1 {
+    text-align: center;
+}
+.navbar {
+    background-color: black;
+    border: none;
+}
+p {
+    color: gray;
+}
+.short_text {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.separate>h2 {
+    text-align: center;
+}
+body {
+    background-color: black;
+}
