@@ -1,3 +1,5 @@
+"use strict";
+
 // ignore these lines for now
 // just know that the variable 'color' will end up with a random value from the colors array
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
@@ -14,3 +16,28 @@ var favorite = 'red'; // TODO: change this to your favorite color from the list
 
 // TODO: Using the ternary operator, conditionally log a statement that
 //       says whether the random color matches your favorite color.
+
+
+if (color == 'red') {
+    console.log("Red is the color of Clifford the Big Red Dog");
+
+} else if (color =='orange') {
+    console.log("Orange is the color of...Oranges");
+
+} else if (color == 'yellow') {
+    console.log("Yellow is the color of snow sometimes");
+
+} else if (color == 'green') {
+    console.log("Green is the color of grass");
+
+} else if (color == 'blue') {
+    console.log("Blue is the color of the Ocean");
+
+} else {
+    console.log("I do not know anything by that color");
+
+}
+
+var favoriteCheck = (favorite == color) ? "This color IS my favorite" : "This color is NOT my favorite";
+console.log(favoriteCheck);
+

@@ -1,22 +1,11 @@
-.separate {
-    /*background-image: url("/img/new_year_background.png");*/
-    margin-right: 40px;
-}
-.separate>h2 {
-    text-align: center;
-    color: white;
-}
-.separate>p {
-    color: white;
-}
-.some_background {
-    margin-top: 50px;
-    margin-bottom: 50px;
 
+.aboutLeft {
+    background-color: red;
+    width: 500px;
 }
-.img-circle {
-    height: 150px;
-    width: 250px;
+.aboutLeft>h1 {
+    font-family: cursive;
+    margin: 0px;
 }
 .navbar-brand>img {
     height: 45px;d
@@ -24,47 +13,12 @@
     position: relative;
     bottom: 12px;
 }
-.col-md-4>p {
-    margin: 50px 50px 50px 50px;
-}
-.col-md-6 .col-md-offset-2 {
-    background-color: black;
-}
 .navbar {
     background-color: transparent;
     border: none;
-}
-p {
-    color: gray;
-}
-.short_text {
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 body {
     background-image: url("/img/Earth-space.jpg");
     background-attachment: fixed;
     background-size: cover;
-}
-.row1col1{
-    background-color: ;
-    height: 400px;
-    width: 400px;
-    /*border: 10px outset gray;*/
-    margin-left: 85px;
-}
-.row1col1>p{
-    color: white;
-    font-size: 15px;
-}
-.row1col2 {
-    background-color: ;
-    height: 400px;
-    width: 600px;
-    /*border: 10px outset gray;*/
-    margin-left: 85px;
-}
-.row1col2>p{
-    color: white;
-    font-size: 15px;
 }
