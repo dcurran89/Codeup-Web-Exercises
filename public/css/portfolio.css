@@ -1,9 +1,13 @@
 .separate {
-    background-image: url("/img/new_year_background.png");
+    /*background-image: url("/img/new_year_background.png");*/
     margin-right: 40px;
 }
 .separate>h2 {
     text-align: center;
+    color: white;
+}
+.separate>p {
+    color: white;
 }
 .some_background {
     margin-top: 50px;
@@ -11,11 +15,11 @@
 
 }
 .img-circle {
-    height: 250px;
-    width: 350px;
+    height: 150px;
+    width: 250px;
 }
 .navbar-brand>img {
-    height: 45px;
+    height: 45px;d
     width: 45px;
     position: relative;
     bottom: 12px;
@@ -23,34 +27,12 @@
 .col-md-4>p {
     margin: 50px 50px 50px 50px;
 }
-.jumbotron {
-    background-color: #000;
-    height: 300px;
-    width: 700px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 20px;
-}
-.jumbotron>h1 {
-    text-align: center;
-    margin-top: 50px;
-    vertical-align: middle;  
-}
 .col-md-6 .col-md-offset-2 {
     background-color: black;
 }
-.contact_info>p {
-    text-align: center;
-}
-.contact_info>h1 {
-    text-align: center;
-}
 .navbar {
-    background-color: black;
+    background-color: transparent;
     border: none;
-}
-.navbar-default{
-
 }
 p {
     color: gray;
@@ -60,29 +42,29 @@ p {
     padding-bottom: 20px;
 }
 body {
-    background-image: url("/img/earth_orbit.jpg");
+    background-image: url("/img/Earth-space.jpg");
     background-attachment: fixed;
     background-size: cover;
 }
 .row1col1{
-    background-color: white;
+    background-color: ;
     height: 400px;
     width: 400px;
     /*border: 10px outset gray;*/
     margin-left: 85px;
 }
 .row1col1>p{
-    color: black;
+    color: white;
     font-size: 15px;
 }
 .row1col2 {
-    background-color: white;
+    background-color: ;
     height: 400px;
     width: 600px;
     /*border: 10px outset gray;*/
     margin-left: 85px;
 }
 .row1col2>p{
-    color: black;
+    color: white;
     font-size: 15px;
 }

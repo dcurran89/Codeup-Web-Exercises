@@ -1,0 +1,29 @@
+.box1 {
+    background-color: red;
+    width: 250px;
+    height: 100px;
+}
+.box2 {
+    background-color: blue;
+    width: 250px;
+    height: 100px;
+}
+.box3 {
+    background-color: green;
+    width: 250px;
+    height: 100px;
+}
+.box4 {
+    background-color: purple;
+    width: 250px;
+    height: 100px;
+}
+h4 {
+    font-size: 10px;
+    text-align: center;
+}
+.box>p {
+    font-size: 8px;
+    padding: 10px;
+    margin: 10px;
+}
