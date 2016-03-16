@@ -38,6 +38,7 @@ if (color == 'red') {
 
 }
 
+
 var favoriteCheck = (favorite == color) ? "This color IS my favorite" : "This color is NOT my favorite";
 console.log(favoriteCheck);
 

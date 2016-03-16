@@ -18,7 +18,13 @@
     border: none;
 }
 body {
-    background-image: url("/img/Earth-space.jpg");
+    /*background-image: url("/img/Earth-space.jpg");*/
     background-attachment: fixed;
     background-size: cover;
+}
+.dropdown-menu {
+    background-color: transparent;
+}
+.collapsed {
+    background-color: white;
 }
