@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Push and Pop</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        var names = [
+            "Marcus",
+            "Matthew",
+            "Alan",
+            "John",
+            "Sarah"
+        ];
+
+        
+        var anotherName = names.splice(2, 2);
+        console.log(names);
+        console.log(anotherName);
+
+        anotherName.forEach(function(newName){
+            names.push(newName);
+        });
+        console.log(names);
+
+        names.splice(3, 0, "Jarod", "Alex", "Daniel");
+        console.log(names);
+
+        names.splice(4, 2, "Rachel", "Andrew");
+        console.log(names);
+
+
+
+    </script>
+</body>
+</html>
