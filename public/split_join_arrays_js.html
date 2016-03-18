@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        // todo:
+        // Copy the array of planets you created in the last lesson.
+        var planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+//With spaces
+        // todo: Join the planets array with pipes (|) to create a variable named 'planetsAsString'.
+        console.log("With spacing");
+        var planetsAsString = planets.join(' | ');
+        console.log(planetsAsString);
+
+        // todo: Split the 'planetsAsString' variable by pipes (|) to create a variable named 'planetsAsArray'.
+        var planetsAsArray = planetsAsString.split(' | ');
+        console.log(planetsAsArray);
+//No spaces
+        console.log("Without Spaces");
+        var planetsAsString = planets.join('|');
+        console.log(planetsAsString);
+
+        var planetsAsArray = planetsAsString.split('|');
+        console.log(planetsAsArray);
+    </script>
+</body>
+</html>
