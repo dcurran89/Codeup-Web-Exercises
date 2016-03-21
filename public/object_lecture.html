@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Objects</title>
+</head>
+<body>
+    <script>
+
+        (function(){
+
+        "use strict";
+
+            //two ways to make an object
+            //var car = new Object();
+            var car = {};
+            //use array notation to assign a "model" property
+            car['model'] = 'Camry';
+            //dot notation to assign a "make" property
+            car.make = "Toyota";
+            car.color = 'Gray';
+            car.year = '2001';
+            car.type = 'Sedan';
+
+            var what = 'color';
+
+            console.log(car);
+            console.log(car.year);
+            console.log(car['color']);
+            console.log(car[what]);
+
+            car.honk = function () {
+                alert('Honk! Honk!');
+            };
+
+            //car.honk();
+
+            var player_name = prompt("What is your name");
+//New Object 
+            //Create empty object
+            var player_1 = {};
+            //Create properties(variables)
+            player_1.name = player_name;
+            player_1.power = 100;
+            player_1.speed = 100;
+            player_1.stamina = 20;
+            player_1.defense = 40;
+
+            console.log(player_1);
+
+            //Create methods(functions)
+            player_1.intro = function () {
+                console.log("Hello " + this.name);
+            }
+            player_1.attack = function () {
+                console.log('attacking');
+            }
+
+            player_1.attack = function () {
+                console.log('running');
+            }
+            //this means the current object I'm in
+            player_1.injured = function () {
+                this.power--;
+            }
+
+            player_1.showPower = function () {
+                console.log(this.power);
+            }
+
+        })();
+    </script>
+</body>
+</html>
