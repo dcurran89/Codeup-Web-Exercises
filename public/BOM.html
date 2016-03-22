@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BOM</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        // var count = 0;
+        // var max = 10;
+        // var intervalId = setInterval(function(){
+        //     alert("Hi Everybody");
+
+        //     if (count > 3) {
+        //         clearInterval(intervalId);
+        //     }
+        //     count++;
+        // }, 3000);
+
+
+        // var count = 0;
+        // var max = 10;
+        // var interval = 1000; // interval time in milliseconds
+
+        // var intervalId = setInterval(function () {
+        //     if (count >= max) {
+        //         clearInterval(intervalId);
+        //         console.log('All done');
+        //     } else {
+        //         count++;
+        //         console.log('Repeating this line ' + count);
+        //     }
+        // },d interval);
+
+            var myComputer = {
+            users: ['codeup'],
+
+            showUsers: function(){
+                /* TODO */
+                console.log(this.users);
+            },
+
+            addUser: function(userToAdd){
+                /* TODO */
+                this.users.push(userToAdd);
+            },
+
+            removeUser: function(userToRemove){
+                /* TODO */
+                var index = this.users.indexOf(userToRemove);
+                this.users.splice(index, 1);
+                if (index > -1){
+                    this.users.splice(index, 1);
+                } else {
+                    console.log('User ' + this.user + ' does not exist.');
+                }
+            }
+        };
+
+        myComputer.showUsers(); // output: 'codeup'
+
+        myComputer.addUser('zach'); 
+        myComputer.showUsers(); // output: 'codeup, zach'
+
+        myComputer.removeUser('zach');
+        myComputer.showUsers(); // output: 'codeup'
+            </script>
+</body>
+</html>

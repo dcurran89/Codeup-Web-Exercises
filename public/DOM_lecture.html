@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM</title>
+</head>
+<body>
+    <!-- <button id="btnToClick">Click Me</button>
+    <script>
+        "use strict";
+        // (function() {
+        //     var btnToClick = document.getElementById('btnToClick');
+
+        //     console.log(btnToClick); // prints <button id="btnToClick">Click Me</button>
+        // })();
+    </script> -->
+    
+
+
+
+    <!--<h1>List One</h1>
+    <ul>
+        <li class="odd list-one-item">List 1, Item 1</li>
+        <li class="even list-one-item">List 1, Item 2</li>
+    </ul>
+    <h1>List Two</h1>
+    <ul>
+        <li class="odd list-two-item">List 2, Item 1</li>
+        <li class="even list-two-item">List 2, Item 2</li>
+    </ul>
+
+    <script>
+        "use strict";
+        (function() {
+            // Get all elements with class 'even'
+            var evenElements = document.getElementsByClassName('even');
+            console.log(evenElements);
+
+            // Print the first element
+            console.log(evenElements[0]); // Prints li.even.list-one-item
+
+            // Print all elements
+            for (var i = 0; i < evenElements.length; i++) {
+                console.log(evenElements[i]);
+            }
+
+            // Prints:
+            // li.even.list-one-item
+            // li.even.list-two-item
+
+            var listItems = document.getElementsByTagName('li');
+
+            // Print the first list item
+            console.log(listItems[0]); // Prints li.odd.list-one-item
+
+            // Print all the list items
+            for (var i = 0; i < listItems.length; i++) {
+                console.log(listItems[i]);
+            }
+
+            // Prints
+            // li.odd.list-one-item
+            // li.even.list-one-item
+            // li.odd.list-two-item
+            // li.even.list-two-item
+        })(); 
+    </script>-->
+
+
+    <!-- <a href="http://www.yahoo.com" id="search-link">Web Search</a>
+    <script>
+        "use strict";
+        (function() {
+            // Get the search link anchor by id
+            var searchLink = document.getElementById("search-link");
+
+            // Does an element have an attribute?
+            console.log(searchLink.hasAttribute("href")); // Prints true
+            console.log(searchLink.hasAttribute("class")); // Prints false
+
+            // Get an attribute value
+            console.log(searchLink.getAttribute("href")); // Prints "http://www.yahoo.com"
+
+            // Add or modify an attribute
+            searchLink.setAttribute("class", "btn btn-default");
+            // Adds the attribute class and sets it to "btn btn-default"
+
+            searchLink.setAttribute("href", "http://google.com");
+            // Changes the href attribute to "http://google.com"
+
+            // Remove an attribute
+            searchLink.removeAttribute("class"); // Remove the class attribute
+        })();
+    </script> -->
+
+    <ul>
+        <li data-dbid="123">Item one</li>
+        <li data-dbid="234">Item two</li>
+        <li data-fname="Daniel">Item three</li>
+    </ul>
+    <script>
+        "use strict";
+        (function() {
+            // Get the main heading h1 by id
+            var listItems = document.getElementsByTagName('li');
+
+            for (var i = 0; i < listItems.length; i++) {
+                var dbId = listItems[i].getAttribute("data-dbid");
+                console.log(dbId);
+            } 
+            // Prints
+            // 123
+            // 234
+        })();
+    </script>
+</body>
+</html>
