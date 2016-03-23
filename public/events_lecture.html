@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+</head>
+<body>
+    <h1 id = "heading-1">This is an h1 header</h1>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+
+    <form id = "signup-form">
+        <label for = "first-name">First Name</label>
+        <input type = "text"></input> 
+        <label for ="submit"></label>
+        <input type = "submit"></input>  
+    </form>
+
+    <script>
+        "use strict";
+        var heading1 = document.getElementById("heading-1");
+
+        console.log(heading1);
+
+        heading1.addEventListener('click', function () {
+            alert("Ouch! My Eye!!");
+        });
+
+        var paragraphs = document.getElementsByTagName('p');
+        for (var i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].addEventListener("mouseenter", function() {
+                this.style['font-weight'] = 'bold'; // 'this' is used for the particular element that is being activated right now
+            });
+            paragraphs[i].addEventListener("mouseleave", function() {
+                this.style['font-weight'] = 'normal';
+            });
+        }
+
+        var signupForm = document.getElementById("signup-form");
+
+        signupForm.addEventListener("submit", function() {
+            event.preventDefault();
+            console.log(this);
+        });
+    </script>
+</body>
+</html>

@@ -42,11 +42,13 @@
             // TODO: Set inner html of mainHeader to "JavaScript is Cool"
             mainHeader.innerHTML = "Javascript is Cool";
             console.log(mainHeader);
+
             // TODO: Uncomment the next line and get the sub header element by id
             var subHeader = document.getElementById('sub-header');
 
             // TODO: Set the text color of subHeader to blue
             subHeader.style.color = "blue";
+
             // TODO: Uncomment the next line and get all list items
             var listItems = document.getElementsByTagName('li');
 
@@ -54,9 +56,10 @@
             // TODO: Set text color of li with dbid = 1 to blue
             for (var i = 0; i < listItems.length; i++) {
                 var dbId = listItems[i].getAttribute("data-dbid");
-                if (i % 2 !== 0) {
+                if (i % 2 == 0) {
                     listItems[i].style.color = "grey";
-                } else if (dbId == '1') {
+                }
+                if (dbId == '1') {
                     listItems[i].style.color = "blue";
                 }
             }
