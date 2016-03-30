@@ -1,26 +1,38 @@
+.calculator {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+}
 .data {
     width: 212px;
     height: 60px;
     background-color: #666;
     padding: 2px 0px 0px 5px;
+
 }
 #leftOperand {
     width: 70px;
-    height: 20px;
+    height: 40px;
     float: left;
-    margin: 20px 0px 0px 0px;
+    margin: 8px 0px 0px 0px;
+    text-align: center;
+    font-size: 16px;
 }
 #Operator {
     width: 50px;
-    height: 20px;
+    height: 40px;
     float: left;
-    margin: 20px 0px 0px 0px;
+    margin: 8px 0px 0px 0px;
+    text-align: center;
+    font-size: 16px;
 }
 #rightOperand {
     width: 70px;
-    height: 20px;
+    height: 40px;
     float: left;
-    margin: 20px 0px 0px 0px;
+    margin: 8px 0px 0px 0px;
+    text-align: center;
+    font-size: 16px;
 }
 .input {
     width: 215px;
@@ -43,9 +55,12 @@
     height: 50px;
 }
 .operator {
-    background-color: orange;
+    background-color: #800000;
     color: white;
 }
 .zero {
     width: 104px;
+}
+#equal {
+    background-color: red;
 }
