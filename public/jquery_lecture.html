@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JQuery</title>
+</head>
+<body>
+
+    <h1 class="codeup">This is a Header styled with jQuery that changes after 3 seconds</h1>
+    <script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script>
+    "use strict"; 
+    $(document).ready(function(){
+    // $().ready(function(){})
+    // $(function(){})
+
+        //These two function calls are the same
+            // jQuery();
+            // $();
+
+            $('.class_name')
+                var codeup = document.getElementsByClassName('codeup');
+                for(var i = 0; i < codeup.length; i++) {
+                    codeup[i].style.color = 'blue';
+                }//this and the following are the same thing
+            setTimeout(function(){
+                
+                var $codeup = $('.codeup');
+                $codeup.css('color', 'red').css('font-size', '24px');//this and the previous are the same thing
+            }, 3000);
+
+                // $codeup.css({
+                //     'color': 'black',
+                //     'font-size': '30px'
+                // })
+
+            // $('#id_name')
+            //     document.getElementById('joshua');
+            //     $('#joshua')
+
+            // $('tag_name')
+            //     document.getElementsByTagName('div');
+            //     $('div')
+            var $elements = $('.codeup');
+            $elements.click(function(){
+                //some code    
+            });
+            $elements.on('click', function(){
+                //some code
+            })
+            $elements.hover(function(){
+                //do this when you enter element
+            }, function(){
+                //do this when you leave element
+            })
+    });
+    </script>
+
+</body>
+</html>

@@ -13,10 +13,8 @@
 <body>
     <!-- div to hold map -->
     <div id="map-canvas"></div>
-
     <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2HVTbPmJLbbSEwH3ohD5L2pDekRvtbDU"></script>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2HVTbPmJLbbSEwH3ohD5L2pDekRvtbDU&libraries=places"></script>
     <!-- Script to show address on map -->
     <script type="text/javascript">
     (function() {
@@ -112,81 +110,66 @@
               }
             }
         });
+        function initAutocomplete() {
 
+          // Create the search box and link it to the UI element.
+          var input = document.getElementById('pac-input');
+          var searchBox = new google.maps.places.SearchBox(input);
+          map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-        // Create lat and long for our marker position
-        // var tokyoInn = { lat: 29.466641, lng: -98.507007 };
-        // Set our map options
-        
+          // Bias the SearchBox results towards current map's viewport.
+          map.addListener('bounds_changed', function() {
+            searchBox.setBounds(map.getBounds());
+          });
 
-        // Include code from previous example
+          var markers = [];
+          // Listen for the event fired when the user selects a prediction and retrieve
+          // more details for that place.
+          searchBox.addListener('places_changed', function() {
+            var places = searchBox.getPlaces();
 
-        // Set our address to geocode
-        // var address = "819 Hildebrand Ave W San Antonio, TX 78212";
+            if (places.length == 0) {
+              return;
+            }
 
-        // Init geocoder object
-        // var geocoder = new google.maps.Geocoder();
+            // Clear out the old markers.
+            markers.forEach(function(marker) {
+              marker.setMap(null);
+            });
+            markers = [];
 
-        // // Geocode our address
-        // geocoder.geocode({ "address": mapOptions.center }, function(results, status) {
+            // For each place, get the icon, name and location.
+            var bounds = new google.maps.LatLngBounds();
+            places.forEach(function(place) {
+              var icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+              };
 
-        //    // Check for a successful result
-        //    if (status == google.maps.GeocoderStatus.OK) {
+              // Create a marker for each place.
+              markers.push(new google.maps.Marker({
+                map: map,
+                icon: icon,
+                title: place.name,
+                position: place.geometry.location
+              }));
 
-        //        // Recenter the map over the address
-        //        map.setCenter(results[0].geometry.location);
-        //    } else {
-
-        //        // Show an error message with the status if our request fails
-        //        alert("Geocoding was not successful - STATUS: " + status);
-        //    }
-        // });
-
-        
-
-        // Add the marker to our existing map
-        // var marker = new google.maps.Marker({
-        //     // position: mapOptions.center,
-        //     map: map,
-        //     animation: google.maps.Animation.DROP,
-        //     icon: '/img/sushi.png'
-        // });
-        
-        // Create a new infoWindow object with content
-        // var contentString = '<div><h2 style="text-align: center">Niki\'s Tokyo Inn</h2>' +
-        //                     '<p style="color: red"><em><b>Niki\'s Tokyo Inn</b>, also referred to as <b>Tokyo Inn</b>,<br> is a ' +
-        //                     'very authentic \'Ma and Pa\' sushi<br> restaurant located on Hildebrand<em><p>' +
-        //                     '<img src="/img/sushi-platter.jpg" style="display: block; margin: 0 auto;"></img></div>';
-
-        // var infowindow = new google.maps.InfoWindow({
-        //         content: contentString
-        //     });
-        // //Open and close infowindow on click
-        // google.maps.event.addListener(marker, 'click', function() {
-        //     if(!marker.open){
-        //         infowindow.open(map,marker);
-        //         marker.open = true;
-        //         map.setZoom(17);
-        //     }
-        //     else{
-        //         infowindow.close();
-        //         marker.open = false;
-        //     }
-        //     google.maps.event.addListener(map, 'click', function() {
-        //         infowindow.close();
-        //         marker.open = false;
-        //         marker.setAnimation(null);
-        //     });
-        // });
-        // marker.addListener('click', toggleBounce);
-
-        // function toggleBounce() {
-        //   if (marker.getAnimation() !== null) {
-        //     marker.setAnimation(null);
-        //   } else {
-        //     marker.setAnimation(google.maps.Animation.BOUNCE);
-        //   }
-        // }
+              if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+              } else {
+                bounds.extend(place.geometry.location);
+              }
+            });
+            map.fitBounds(bounds);
+          });
+        }
+        initAutocomplete();
     })();
+
     </script>
+
 </body>
