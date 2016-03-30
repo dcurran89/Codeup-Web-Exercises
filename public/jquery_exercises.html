@@ -34,8 +34,22 @@
     $('li').css({
         'font-size': '20px',
     });
-    $('h1, p, li').css({
-        'background-color': 'yellow'
+
+    var $h1 = $('h1');
+    $h1.on('click', function(){
+        $(this).css('background-color', 'yellow');
+    });
+
+    var $p = $('p');
+    $p.on('dblclick', function(){
+        $(this).css('font-size', '18px');
+    });
+
+    var $li = $('li');
+    $li.hover(function(){
+        $(this).css('color', 'red');
+    }, function(){
+        $(this).css('color', 'white');
     });
     </script>
 
