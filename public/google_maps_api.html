@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #map-canvas {
+            width: 770px;
+            height: 481px;
+            margin: 0 auto;
+        }
+    </style>
+    <h1 style="text-align: center"></h1>
+</head>
+<body>
+    <!-- div to hold map -->
+    <div id="map-canvas"></div>
+
+    <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2HVTbPmJLbbSEwH3ohD5L2pDekRvtbDU"></script>
+
+    <!-- Script to show address on map -->
+    <script type="text/javascript">
+    (function() {
+        "use strict";
+
+        var mapOptions = {
+            // Set the zoom level
+            zoom: 14,
+
+            // This sets the center of the map at our location
+            center: {
+                lat:  29.466641,
+                lng: -98.507007
+            }
+        };
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        var favRestaurants = [
+                {
+                    name : "tokyoInn",
+                    position : {
+                                    lat : 29.466641,
+                                    lng : -98.507007
+                                },
+                    contentString: '<div><h2 style="text-align: center">Niki\'s Tokyo Inn</h2>' +
+                                    '<p style="color: red"><em><b>Niki\'s Tokyo Inn</b>, also referred to as <b>Tokyo Inn</b>,<br> is a ' +
+                                    'very authentic \'Ma and Pa\' sushi<br> restaurant located on Hildebrand<em><p>' +
+                                    '<img src="/img/sushi-platter.jpg" style="display: block; margin: 0 auto;"></img></div>',
+                    
+                    icon: '/img/sushi.png'
+                },{
+                    name : "rolandos",
+                    position : {
+                                    lat : 29.466635,
+                                    lng : -98.508638
+                                },
+                    contentString: '<div><h2 style="text-align: center">Rolando\'s Super Tacos</h2>' +
+                                    '<p style="color: red"><em><b>Rolando\'s Super Tacos</b>, is a ' +
+                                    'very authentic \'Ma and Pa\' <br>giant taco restaurant located on Hildebrand<em><p>' +
+                                    '<img src="/img/rolando.jpg" style="display: block; margin: 0 auto;"></img></div>',
+
+                    icon: '/img/taco.png'
+                },{
+                    name : "chrisMadrids",
+                    position : {
+                                    lat : 29.464010,
+                                    lng : -98.507862
+                                },
+                    contentString: '<div><h2 style="text-align: center">Chris Madrid\'s</h2>' +
+                                    '<p style="color: red"><em><b>Chris Madrid\'s</b>, is a ' +
+                                    'burger joint known for <br>their cheesy burgers, located on Blanco<em><p>' +
+                                    '<img src="/img/madrids.jpeg" style="display: block; margin: 0 auto;"></img></div>',
+
+                    icon: '/img/burger.png'
+                },  
+            ];
+
+        favRestaurants.forEach(function(element, index){
+            var marker = new google.maps.Marker({
+                position: element.position,
+                map: map,
+                animation: google.maps.Animation.DROP,
+                icon: element.icon
+            });
+            var infowindow = new google.maps.InfoWindow({
+                content: element.contentString
+            });
+            //Open and close infowindow on click
+            google.maps.event.addListener(marker, 'click', function() {
+                if(!marker.open){
+                    infowindow.open(map,marker);
+                    marker.open = true;
+                    map.setZoom(17);
+                }
+                else{
+                    infowindow.close();
+                    marker.open = false;
+                }
+                google.maps.event.addListener(map, 'click', function() {
+                    infowindow.close();
+                    marker.open = false;
+                    marker.setAnimation(null);
+                });
+            });
+            marker.addListener('click', toggleBounce);
+
+            function toggleBounce() {
+              if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+              } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+              }
+            }
+        });
+
+
+        // Create lat and long for our marker position
+        // var tokyoInn = { lat: 29.466641, lng: -98.507007 };
+        // Set our map options
+        
+
+        // Include code from previous example
+
+        // Set our address to geocode
+        // var address = "819 Hildebrand Ave W San Antonio, TX 78212";
+
+        // Init geocoder object
+        // var geocoder = new google.maps.Geocoder();
+
+        // // Geocode our address
+        // geocoder.geocode({ "address": mapOptions.center }, function(results, status) {
+
+        //    // Check for a successful result
+        //    if (status == google.maps.GeocoderStatus.OK) {
+
+        //        // Recenter the map over the address
+        //        map.setCenter(results[0].geometry.location);
+        //    } else {
+
+        //        // Show an error message with the status if our request fails
+        //        alert("Geocoding was not successful - STATUS: " + status);
+        //    }
+        // });
+
+        
+
+        // Add the marker to our existing map
+        // var marker = new google.maps.Marker({
+        //     // position: mapOptions.center,
+        //     map: map,
+        //     animation: google.maps.Animation.DROP,
+        //     icon: '/img/sushi.png'
+        // });
+        
+        // Create a new infoWindow object with content
+        // var contentString = '<div><h2 style="text-align: center">Niki\'s Tokyo Inn</h2>' +
+        //                     '<p style="color: red"><em><b>Niki\'s Tokyo Inn</b>, also referred to as <b>Tokyo Inn</b>,<br> is a ' +
+        //                     'very authentic \'Ma and Pa\' sushi<br> restaurant located on Hildebrand<em><p>' +
+        //                     '<img src="/img/sushi-platter.jpg" style="display: block; margin: 0 auto;"></img></div>';
+
+        // var infowindow = new google.maps.InfoWindow({
+        //         content: contentString
+        //     });
+        // //Open and close infowindow on click
+        // google.maps.event.addListener(marker, 'click', function() {
+        //     if(!marker.open){
+        //         infowindow.open(map,marker);
+        //         marker.open = true;
+        //         map.setZoom(17);
+        //     }
+        //     else{
+        //         infowindow.close();
+        //         marker.open = false;
+        //     }
+        //     google.maps.event.addListener(map, 'click', function() {
+        //         infowindow.close();
+        //         marker.open = false;
+        //         marker.setAnimation(null);
+        //     });
+        // });
+        // marker.addListener('click', toggleBounce);
+
+        // function toggleBounce() {
+        //   if (marker.getAnimation() !== null) {
+        //     marker.setAnimation(null);
+        //   } else {
+        //     marker.setAnimation(google.maps.Animation.BOUNCE);
+        //   }
+        // }
+    })();
+    </script>
+</body>
