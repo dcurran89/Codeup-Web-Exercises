@@ -30,11 +30,14 @@
         $(document).ready(function() {
             // show all faq answers
             $('#show-answers').click(function(event) {
-                $('dd').toggleClass('invisible');
+                $('dd').slideToggle();
+            });
+            $('#dial-up').click(function(event) {
+                $('dd').slideToggle(10000);
             });
             // show one faq at a time
             $('dt').click(function(event) {
-                $(this).next().toggleClass('invisible');
+                $(this).next().slideToggle();
             });
 
             //first li in ul bold my way
@@ -46,12 +49,12 @@
             $('li:first-child').css('font-weight', 'bold');
 
             //Create jQuery code that adds the invisible class on the parent ul of any li that is clicked.
-            $('li').click(function(event){
-                $(this).parent().toggleClass('invisible');
-                console.log(event);
-            });
-            $('ul').click(function(){
-                $(this).children().toggleClass('invisible');
+            // $('li').click(function(event){
+            //     $(this).parent().toggleClass('invisible');
+            //     console.log(event);
+            // });
+            $('h3').click(function(){
+                $(this).next().slideToggle();
             });
         });
          
@@ -60,7 +63,8 @@
 <body>
     <section class="content">
     <h1>National Park FAQ</h1>
-    <a href="#" id="show-answers">Click to toggle all of the FAQ answers.</a>
+    <a href="#" id="show-answers">Click to toggle all of the FAQ answers.</a><br>
+    <a href="#" id="dial-up">Click for Dial Up speeds</a>
     <p>
         <em>You can also go through each Question one by one by clicking on the question.</em>
     </p>
