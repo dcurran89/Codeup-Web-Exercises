@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <style>
+        body {
+            background-image: url("/img/konami.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+        }
+        .writing {
+            background-color: black;
+            width: 400px;
+            height: 100px;
+        }
+        iframe {
+            border: 0px none; 
+            margin-left: -185px; 
+            height: 859px; 
+            margin-top: -533px; 
+            width: 926px;
+        }
+    </style>
+</head>
+<body>
+    <div class="writing">
+    <h1>Enter the Konami Code</h1>
+        <p>↑ ↑ ↓ ↓ ← → ← → b a enter</p>
+    </div>
+    <div id="game">
+    
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script>
+        "use strict";
+        var enteredString = [];
+        var konami = [38,38,40,40,37,39,37,39,66,65,13];
+
+        $(document).keydown(function(event){
+            enteredString.push(event.keyCode);
+            console.log(enteredString);
+        });
+
+        $(document).keydown(function(event){
+            if(event.keyCode == 13) { //Activate event when you press enter
+                // for(var i = 0; i < enteredString.length; i++){
+                //     if(enteredString[i] === konami[i]){
+                if(enteredString.toString().indexOf(konami) >= 0){
+                        alert('You have 30 Lives! But not really, Get ready to play!')
+                        $(location).attr('href', 'http://www.puffgames.com/contra/');
+                        // $('#game').load('http://www.freearcade.com/Contra.flash/Contra.html #gamecontent');
+                    } else {
+                        alert("Epic Fail, Enter the Code correctly");
+                        $('body').css({
+                            "background-image": "url('/img/explosion.gif')"
+                        });
+                        $('.writing').hide();
+                        // console.log("You suck this doesn't work");
+                    }
+                }    
+            
+        });
+        enteredString = [];
+    </script>
+
+</body>
+</html>
