@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAQ National Park</title>
+    <style>
+        dt {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .invisible {
+            display: none;
+        }
+        body {
+            background-image: url("/img/waterfall2.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            color: black;
+        }
+        .content {
+            background-color: rgba(230,230,230,.7);
+            margin: 0 auto;
+            width: 500px;
+            height: auto;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script>
+        "use strict"
+
+        $(document).ready(function() {
+            // show all faq answers
+            $('#show-answers').click(function(event) {
+                $('dd').toggleClass('invisible');
+            });
+            // show one faq at a time
+            $('dt').click(function(event) {
+                $(this).next().toggleClass('invisible');
+            });
+
+            //first li in ul bold my way
+            // $('ul').each(function(index){
+            //     $(this).children().first('li').css('font-weight', 'bold');
+            // });
+
+            //different way than above
+            $('li:first-child').css('font-weight', 'bold');
+
+            //Create jQuery code that adds the invisible class on the parent ul of any li that is clicked.
+            $('li').click(function(event){
+                $(this).parent().toggleClass('invisible');
+                console.log(event);
+            });
+            $('ul').click(function(){
+                $(this).children().toggleClass('invisible');
+            });
+        });
+         
+    </script>
+</head>
+<body>
+    <section class="content">
+    <h1>National Park FAQ</h1>
+    <a href="#" id="show-answers">Click to toggle all of the FAQ answers.</a>
+    <p>
+        <em>You can also go through each Question one by one by clicking on the question.</em>
+    </p>
+    <dl>
+        <dt>What government agency oversees the National Park Service?</dt>
+            <dd class="invisible click-invisible">The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is the Department's Assistant Secretary for Fish, Wildlife and Parks.</dd>
+        <dt>How many employees are in the National Park Service?</dt>
+            <dd class="invisible click-invisible">Permanent, temporary, and seasonal: Approximately 22,000 diverse professionals</dd>
+            <dd class="invisible click-invisible">Volunteers in Parks: 221,000</dd>
+        <dt>How old is the National Park System?</dt>
+            <dd class="invisible click-invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an Act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.</dd>
+        <dt>What is the origin of the National Park Service arrowhead?</dt>
+            <dd class="invisible click-invisible">The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on July 20, 1951. The components of the arrowhead may have been inspired by key attributes of the National Park System, with the sequoia tree and bison representing vegetation and wildlife, the mountains and water representing scenic and recreational values, and the arrowhead itself representing historical and archeological values. Read more about the history of the arrowhead and other elements of NPS visual design.</dd>
+        <dt>How many areas are in the National Park System?</dt>
+            <dd class="invisible click-invisible">The system includes 410 areas covering more than 84 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments, battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic rivers and trails, and the White House. Learn more about national park designations. See the complete list of National Park Service units and affiliated areas (PDF) by type and number.</dd>
+        <dt>What is the largest national park site? </dt>
+            <dd class="invisible click-invisible">Largest: Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres</dd>
+        <dt>What is the smallest national park site?</dt>
+            <dd class="invisible click-invisible">Smallest: Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres</dd>
+        <dt>How many people visit the national parks?</dt>
+            <dd class="invisible click-invisible">Total recreation visitors to the national parks in 2015: 307,247,252</dd>
+        <dt>What is the National Park Service budget?</dt>
+            <dd class="invisible click-invisible">FY 2015 Request: $3.65 billion</dd>
+        <dt>What do I need to know about driving off road in national parks?</dt>
+            <dd class="invisible click-invisible">Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.</dd>
+    </dl>
+
+    <h1>Parks List</h1>
+    <h3>Grand Canyon</h3>
+    <ul id="">
+        <li>1,217,403.32 acres</li>
+        <li>4,756,771 Recreational Visitors Annually</li>
+        <li>Established February 26, 1919</li>
+        <li>277 miles (446 km) long, up to 1 mile (1.6 km) deep, and up to 15 miles (24 km) wide</li>
+    </ul>
+    <h3>Badlands</h3>
+    <ul id="">
+        <li>242,755.94 acres</li>
+        <li>868,094 Recreational Visitors Annually</li>
+        <li>Established November 10, 1978</li>
+        <li>The Badlands are a collection of buttes, pinnacles, spires, and grass prairies.</li>
+    </ul>
+    <h3>Biscayne</h3>
+    <ul id="">
+        <li>172,924.07 acres</li>
+        <li>525,745 Recreational Visitors Annually</li>
+        <li>Established June 28, 1980</li>
+        <li>This park at the north end of the Florida Keys has four interrelated marine ecosystems: mangrove forest, the Bay, the Keys, and coral reefs.</li>
+    </ul>
+    </section>
+    </body>
+</html>
