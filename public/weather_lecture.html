@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather</title>
+</head>
+<body>
+
+<script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
+
+<script>
+    // var weatherMap = $.get("http://api.openweathermap.org/data/2.5/weather", {
+    //     APPID: "11b5db8169638c5c7a69e9593ded4a0b",
+    //     lat:    29.423017,
+    //     lon:   -98.48527,
+    //     units: "imperial"
+    // }).done(function(data) {
+    //     console.log(data);
+    //     console.log("it worked");
+    // }).fail(function(error){
+    //     console.log("error");
+    // });
+    $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+    APPID: "11b5db8169638c5c7a69e9593ded4a0b",
+    lat:    29.423017,
+    lon:   -98.48527,
+    units: "imperial"
+}).done(function(data) {
+    console.log(data);
+});
+</script>
+
+</body>
+</html>

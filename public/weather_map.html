@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather</title>
+
+    <style>
+        .col-md-4 {
+            float: left;
+            text-align: center;
+        }
+        #city {
+            text-align: center;
+        }
+        #map-canvas {
+            width: 900px;
+            height: 400px;
+            margin: 0 auto;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div id="city">
+
+        </div>
+        <div id="day1" class="col-md-4 col-sm-4 col-xs-4">
+            
+        </div>
+        <div id="day2" class="col-md-4 col-sm-4 col-xs-4">
+            
+        </div>
+        <div id="day3" class="col-md-4 col-sm-4 col-xs-4">
+            
+        </div>
+    </div>
+    <!-- div to hold map -->
+    <div id="map-canvas"></div>
+
+<script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
+<!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2HVTbPmJLbbSEwH3ohD5L2pDekRvtbDU&libraries=places"></script>
+
+<script>
+(function (){
+var mapOptions = {
+    // Set the zoom level
+    zoom: 5,
+
+    // This sets the center of the map at our location
+    center: {
+        lat:  29.466641,
+        lng: -98.507007
+    }
+};
+// Render the map
+var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+var weather = function(){
+    var $connection = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+        APPID: "11b5db8169638c5c7a69e9593ded4a0b",
+        lat: 29.423017,
+        lon: -98.48527,
+        units: "imperial"
+    });
+
+    $connection.done(function(data) {
+        var $location = $('#city');
+            var city = 
+                '<h1>' + data.city.name + ' 3 Day Forecast</h1>'
+                ;
+
+        var $firstDay = $('#day1');
+            var day1 = 
+                '<p> Temperature: ' + Math.round(data.list[0].temp.max) + '/'+ Math.round(data.list[0].temp.min) + '&#8457' + '</p>' +
+                '<p>' + '<img src="http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png">' + '</p>' +
+                '<p>' + data.list[0].weather[0].main + ': ' + data.list[0].weather[0].description + '</p>' +
+                '<p> Humidity: ' + data.list[0].humidity + '</p>' +
+                '<p> Wind: ' + data.list[0].speed + '</p>' +
+                '<p> Pressure: ' + data.list[0].pressure + '</p>'
+                ;
+
+        var $secondDay = $('#day2');
+            var day2 = 
+                '<p> Temperature: ' + Math.round(data.list[1].temp.max) + '/'
+                + Math.round(data.list[1].temp.min) + '&#8457</p>' +
+                '<p>' + '<img src="http://openweathermap.org/img/w/' + data.list[1].weather[0].icon + '.png">' + '</p>' +
+                '<p>' + data.list[1].weather[0].main + ': ' + data.list[1].weather[0].description + '</p>' +
+                '<p> Humidity: ' + data.list[0].humidity + '</p>' +
+                '<p> Wind: ' + data.list[1].speed + '</p>' +
+                '<p> Pressure: ' + data.list[1].pressure + '</p>' 
+                ;
+
+        var $thirdDay = $('#day3');
+            var day3 = 
+                '<p> Temperature: ' + Math.round(data.list[2].temp.max) + '/'
+                + Math.round(data.list[2].temp.min) + '&#8457</p>' +
+                '<p>' + '<img src="http://openweathermap.org/img/w/' + data.list[2].weather[0].icon + '.png">' + '</p>' +
+                '<p>' + data.list[2].weather[0].main + ': ' + data.list[2].weather[0].description + '</p>' +
+                '<p> Humidity: ' + data.list[2].humidity + '</p>' +
+                '<p> Wind: ' + data.list[2].speed + '</p>' +
+                '<p> Pressure: ' + data.list[2].pressure + '</p>'
+                ;
+
+                $location.append(city);
+                $firstDay.append(day1);
+                $secondDay.append(day2);
+                $thirdDay.append(day3);
+                console.log(data);
+
+    }).fail(function(error){
+        console.log(error + "something went wrong")
+    });
+};
+weather();
+
+
+})();
+</script>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
