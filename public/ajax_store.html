@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+</head>
+<style>
+    th {
+        background-color: #ff9999;
+    }
+</style>
+<body>
+<div class="container">
+    <h1>My Tool Store</h1>
+    <table id="products" class="table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Categories</th>
+            </tr>
+        </thead>
+        <tbody id="insertProducts"></tbody>
+    </table>
+    <button id="refresh" type="text">Refresh</button>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+(function() {
+    // TODO: Create an ajax GET request for /data/inventory.json
+        var $button = $("#refresh");
+        var table = function(){
+            var $inventory = $.ajax('/data/inventory.json');
+            var $products = $("#insertProducts");
+            // TODO: Take the data from inventory.json and append it to the products table
+            //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+            //             its contents and fields
+            //       HINT: You will want to target #insertProducts for your new HTML elements
+                $inventory.done(function(data){
+                    $products.html('');
+                    for(var i = 0; i < data.length; i++){
+                        var $tr = '<tr>'+
+                                '<td>' + data[i].title + '</td>' +
+                                '<td>' + data[i].quantity + '</td>'+
+                                '<td>' + '$' + data[i].price + '</td>'+
+                                '<td>' + data[i].categories + '</td>' +
+                                '</tr>';
+
+                        
+                        $products.append($tr);
+                    };
+                });
+            };
+            table();
+
+            $button.click(function(){
+                table();
+            });
+})();
+</script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
