@@ -11,11 +11,46 @@
         #city {
             text-align: center;
         }
-        #map-canvas {
-            width: 900px;
-            height: 400px;
-            margin: 0 auto;
-        }
+        
+        html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 400px;
+        width: 900px;
+        margin: 0 auto;
+      }
+      .controls {
+        margin-top: 10px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 300px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      .pac-container {
+        font-family: Roboto;
+      }
     </style>
 
 </head>
@@ -34,38 +69,53 @@
         <div id="day3" class="col-md-4 col-sm-4 col-xs-4">
             
         </div>
+        <div class="row">
+            <button id="search">Search by Lat and Long</button>
+            <input id="lat" type="text" placeholder="Lat"></input>
+            <input id="lon" type="text" placeholder="Long"></input>
+        <div>
     </div>
     <!-- div to hold map -->
-    <div id="map-canvas"></div>
+    <div id="map"></div>
 
 <script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
 <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2HVTbPmJLbbSEwH3ohD5L2pDekRvtbDU&libraries=places"></script>
-
+   
 <script>
 (function (){
-var mapOptions = {
-    // Set the zoom level
-    zoom: 5,
 
-    // This sets the center of the map at our location
-    center: {
-        lat:  29.466641,
-        lng: -98.507007
-    }
-};
-// Render the map
-var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    $('#search').click(function(){
 
-var weather = function(){
+        var $lat = parseFloat($('#lat').val());
+        var $lon = parseFloat($('#lon').val());
+        var latLng = {lat: $lat, lng: $lon};
+        // console.log(latLng);
+        var marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            draggable: true
+        });
+        var markerCenter = marker.getPosition();
+        map.setCenter(markerCenter);
+        weather($lat, $lon);
+
+        // google.maps.event.addListener(marker, "dragend", function(){
+        //     weather(this.getPosition.lat(), this.getPostition.lng());
+        // });             
+    });
+    
+var weather = function(lat, long){
     var $connection = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
         APPID: "11b5db8169638c5c7a69e9593ded4a0b",
-        lat: 29.423017,
-        lon: -98.48527,
+        lat: lat,
+        lon: long,
         units: "imperial"
     });
-
+    //Start of weather information
     $connection.done(function(data) {
+
         var $location = $('#city');
             var city = 
                 '<h1>' + data.city.name + ' 3 Day Forecast</h1>'
@@ -73,7 +123,7 @@ var weather = function(){
 
         var $firstDay = $('#day1');
             var day1 = 
-                '<p> Temperature: ' + Math.round(data.list[0].temp.max) + '/'+ Math.round(data.list[0].temp.min) + '&#8457' + '</p>' +
+                '<p> Today: ' + Math.round(data.list[0].temp.max) + '/'+ Math.round(data.list[0].temp.min) + '&#8457' + '</p>' +
                 '<p>' + '<img src="http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png">' + '</p>' +
                 '<p>' + data.list[0].weather[0].main + ': ' + data.list[0].weather[0].description + '</p>' +
                 '<p> Humidity: ' + data.list[0].humidity + '</p>' +
@@ -83,7 +133,7 @@ var weather = function(){
 
         var $secondDay = $('#day2');
             var day2 = 
-                '<p> Temperature: ' + Math.round(data.list[1].temp.max) + '/'
+                '<p> Tomorrow: ' + Math.round(data.list[1].temp.max) + '/'
                 + Math.round(data.list[1].temp.min) + '&#8457</p>' +
                 '<p>' + '<img src="http://openweathermap.org/img/w/' + data.list[1].weather[0].icon + '.png">' + '</p>' +
                 '<p>' + data.list[1].weather[0].main + ': ' + data.list[1].weather[0].description + '</p>' +
@@ -94,7 +144,7 @@ var weather = function(){
 
         var $thirdDay = $('#day3');
             var day3 = 
-                '<p> Temperature: ' + Math.round(data.list[2].temp.max) + '/'
+                '<p> Day After Tomorrow: ' + Math.round(data.list[2].temp.max) + '/'
                 + Math.round(data.list[2].temp.min) + '&#8457</p>' +
                 '<p>' + '<img src="http://openweathermap.org/img/w/' + data.list[2].weather[0].icon + '.png">' + '</p>' +
                 '<p>' + data.list[2].weather[0].main + ': ' + data.list[2].weather[0].description + '</p>' +
@@ -103,22 +153,32 @@ var weather = function(){
                 '<p> Pressure: ' + data.list[2].pressure + '</p>'
                 ;
 
-                $location.append(city);
-                $firstDay.append(day1);
-                $secondDay.append(day2);
-                $thirdDay.append(day3);
+                $location.html(city);
+                $firstDay.html(day1);
+                $secondDay.html(day2);
+                $thirdDay.html(day3);
                 console.log(data);
+                console.log(lat);
+                console.log(lon);
 
     }).fail(function(error){
         console.log(error + "something went wrong")
     });
-};
-weather();
+};//End of Weather Function
 
+    var mapOptions = {
+        zoom: 6,
+        center: {
+            lat:  29.466641,
+            lng: -98.507007
+        }
+    };
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+    weather(29.466641, -98.507007);
+    
 })();
 </script>
-
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
