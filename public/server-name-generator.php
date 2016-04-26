@@ -1,18 +1,29 @@
 <?php
 
+function serverName($valueOne, $valueTwo){
 
-$adjectives = ['Garrulous', 'Defamatory', 'Calamitous', 'Heuristic', 'Pernicious', 'Munificent', 'Bellicose', 'Adroit', 'Contumacious', 'Turgid'];
-$nouns = ['People', 'Slangwhanger', 'Jackanapes', 'Hootenanny', 'Gaberlunzie', 'Panjandrum', 'Hoosegow', 'Snollygoster', 'Hobbledehoy', 'Fuddy-duddy'];
+    $name = $valueOne . " " . $valueTwo;
+    return $name;
+}
 
-$randomAdj = mt_rand(0, sizeof($adjectives) - 1);
-$adjValue = $adjectives[$randomAdj];
+function pageController(){
 
-$randomNoun = mt_rand(0, sizeof($nouns) - 1);
-$nounValue = $nouns[$randomNoun];
+    $adjectives = ['Garrulous', 'Defamatory', 'Calamitous', 'Heuristic', 'Pernicious', 'Munificent', 'Bellicose', 'Adroit', 'Contumacious', 'Turgid'];
+    $nouns = ['People', 'Slangwhanger', 'Jackanapes', 'Hootenanny', 'Gaberlunzie', 'Panjandrum', 'Hoosegow', 'Snollygoster', 'Hobbledehoy', 'Fuddy-duddy'];
+    $data = array();
 
-// var_dump($randomAdj . " " . $randomNoun . PHP_EOL);
-// var_dump($adjValue . " " . $nounValue . PHP_EOL);
+    $randomAdj = mt_rand(0, sizeof($adjectives) - 1);
+    $adjValue = $adjectives[$randomAdj];
 
+    $randomNoun = mt_rand(0, sizeof($nouns) - 1);
+    $nounValue = $nouns[$randomNoun];
+
+    $data['message'] = serverName($adjValue, $nounValue);
+
+    return $data;
+}
+
+extract(pageController());
 
 ?>
 
@@ -24,7 +35,7 @@ $nounValue = $nouns[$randomNoun];
 </head>
 <body>
     <div id="container">
-        <h1 id="generatedName"><?= $adjValue . " " . $nounValue . PHP_EOL;?>
+        <h1 id="generatedName"><?= $message . PHP_EOL;?>
         </h1>
     </div>
 </body>
