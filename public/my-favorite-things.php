@@ -15,7 +15,7 @@ $favorites = ['Food', 'Music', 'Coding', 'Family', 'Friends', 'Traveling'];
     <table>
         <?php foreach($favorites as $value): ?>
         <tr>
-            <td><?php echo $value; ?></td>
+            <td><?= $value; ?></td>
         </tr>
         <?php endforeach; ?>
     </table>
