@@ -24,9 +24,7 @@ $nounValue = $nouns[$randomNoun];
 </head>
 <body>
     <div id="container">
-        <h1 id="generatedName"><?php
-                echo $adjValue . " " . $nounValue . PHP_EOL;
-            ?>
+        <h1 id="generatedName"><?= $adjValue . " " . $nounValue . PHP_EOL;?>
         </h1>
     </div>
 </body>
