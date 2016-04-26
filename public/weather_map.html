@@ -101,9 +101,24 @@
         map.setCenter(markerCenter);
         weather($lat, $lon);
 
-        // google.maps.event.addListener(marker, "dragend", function(){
-        //     weather(this.getPosition.lat(), this.getPostition.lng());
-        // });             
+        google.maps.event.addListener(marker, "dragend", function(){
+            weather(this.getPosition.lat(), this.getPostition.lng());
+        });             
+    });
+    $('#map').click(function(){
+        var $lat = parseFloat($('#lat').val());
+        var $lon = parseFloat($('#lon').val());
+        var latLng = {lat: $lat, lng: $lon};
+        // console.log(latLng);
+        var marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            draggable: true
+        });
+        var markerCenter = marker.getPosition();
+        map.setCenter(markerCenter);
+        weather($lat, $lon);
     });
     
 var weather = function(lat, long){
@@ -162,7 +177,7 @@ var weather = function(lat, long){
                 console.log(lon);
 
     }).fail(function(error){
-        console.log(error + "something went wrong")
+        console.log(error + "something went wrong");
     });
 };//End of Weather Function
 

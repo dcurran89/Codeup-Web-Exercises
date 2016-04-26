@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Random Class</title>
+    <script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/randomClass.css">
+    <script type="text/javascript">
+
+        setRandomClass();
+        setInterval(function () {
+            setRandomClass();
+        }, 2000);
+
+        function setRandomClass() {
+            var ul = $("ul");
+            var items = ul.find("li");
+            var number = items.length;
+            var random = Math.floor((Math.random() * number));
+            items.removeClass("special");
+            items.eq(random).addClass("special");
+            console.log(random);
+        }
+    </script>
+</head>
+<body>
+    <ul>
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+    <li>five</li>
+    <li>six</li>
+    <li>seven</li>
+    <li>eight</li>
+    <li>nine</li>
+    <li>ten</li>
+</ul>
+</body>
+</html>
