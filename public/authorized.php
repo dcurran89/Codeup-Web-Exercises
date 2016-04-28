@@ -1,8 +1,10 @@
 <?php
 
-
-// header('Location: authorized.php');
-// die();
+    session_start();
+    var_dump($_SESSION);
+    if(!isset($_SESSION['logged_in_user'])){
+        header('Location: login.php');
+    }
 
 ?>
 
@@ -12,7 +14,14 @@
     <title>Authorized</title>
 </head>
 <body>
-    <h1>AUTHORIZED</h1>
-    <?php var_dump($_POST) ?>
+    <h1>Hello <?= $_SESSION['logged_in_user'] ?> , You have been Authorized</h1>
+    <!-- <h2>One Moment Please...</h2> -->
+    <a href="logout.php"><button>Logout</button></a>
+
+<!--     <script>
+        setTimeout(function(){
+           window.location='logout.php';
+        }, 2000);
+    </script> -->
 </body>
 </html>
