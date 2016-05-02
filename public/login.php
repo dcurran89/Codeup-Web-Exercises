@@ -1,8 +1,10 @@
 <?php
 
+require 'functions.php';
+
 function pageController(){ 
-    $name = isset($_POST['username']) ? $_POST['username'] : '';
-    $pass = isset($_POST['password']) ? $_POST['password'] : '';
+    $name = inputHas('username') ? inputGet('username') : '';
+    $pass = inputHas('password') ? inputGet('password') : '';
 
     $message = '';
 
@@ -39,7 +41,7 @@ extract(pageController());
         <input type="password" name="password"><br>
         <input type="submit" value="Login">
     </form>
-    <p><?= $message ?></p>
+    <p><?= escape($message) ?></p>
 
 </body>
 </html>

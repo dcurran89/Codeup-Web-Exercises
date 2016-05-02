@@ -1,5 +1,7 @@
 <?php
 
+require 'functions.php';
+
 // clear session data in memory & on disk and send user a new session cookie
 function clearSession()
 {
@@ -14,10 +16,10 @@ function clearSession()
 // this function must be called before trying to get or set any session data!
 session_start();
 
-if (isset($_POST['reset'])) {
-    if ($_POST['reset'] == 'counter') {
+if (inputHas('reset')) {
+    if (inputGet('reset') == 'counter') {
         unset($_SESSION['view_count']);
-    } elseif ($_POST['reset'] == 'session') {
+    } elseif (inputGet('reset') == 'session') {
         clearSession();
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
-function pageController(){
-    $count = !isset($_GET['count']) ? 0 : $_GET['count'];
+require 'functions.php';
 
+function pageController(){
+    
+    $count = !(inputHas('count')) ? 0 : inputGet('count');
     return ['count' => $count];
 }
 
@@ -19,8 +21,8 @@ extract(pageController());
 <body>
 
     <p><?= $count ?></p>
-    <a href="/pong.php?count=<?= $count + 1 ?>"><div id="hit"></div></a>
-    <a href="/pong.php?count=<?= $count = 0 ?>"><div id="miss"></div></a>
+    <a href="/pong.php?count=<?= $count + 1 ?>"><div id="hit">HIT</div></a>
+    <a href="/pong.php?count=<?= $count = 0 ?>"><div id="miss">MISS</div></a>
 
     <script>
         "use strict";

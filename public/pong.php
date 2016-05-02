@@ -1,7 +1,9 @@
 <?php
 
+require 'functions.php';
+
 function pageController(){
-    $count = !isset($_GET['count']) ? 0 : $_GET['count'];
+    $count = !(inputHas('count')) ? 0 : inputGet('count');
 
     return ['count' => $count];
 }
@@ -18,7 +20,7 @@ extract(pageController());
 </head>
 <body>
     <p><?= $count ?></p>
-    <a href="/ping.php?count=<?= $count + 1 ?>"><div id="hit"></div></a>
-    <a href="/ping.php?count=<?= $count = 0 ?>"><div id="miss"></div></a>
+    <a href="/ping.php?count=<?= $count + 1 ?>"><div id="hit">HIT</div></a>
+    <a href="/ping.php?count=<?= $count = 0 ?>"><div id="miss">MISS</div></a>
 </body>
 </html>
