@@ -1,0 +1,27 @@
+#firstBox {
+    height: 50px;
+    width: 150px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+#secondBox {
+    height: 50px;
+    width: 150px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+#thirdBox {
+    height: 50px;
+    width: 150px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+#fourthBox {
+    height: 50px;
+    width: 150px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+#mainHeader{
+    text-align: center;
+}
