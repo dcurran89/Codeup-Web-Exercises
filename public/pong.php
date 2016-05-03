@@ -1,10 +1,10 @@
 <?php
 
-require 'functions.php';
+require_once '../Input.php';
 
 function pageController(){
-    $count = !(inputHas('count')) ? 0 : inputGet('count');
 
+    $count = !(Input::has('count')) ? 0 : Input::get('count');
     return ['count' => $count];
 }
 
