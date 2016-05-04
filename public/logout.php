@@ -1,26 +1,15 @@
 <?php
 
-require 'functions.php';
+require_once '../Input.php';
+require_once '../Auth.php';
 
-// clear session data in memory & on disk and send user a new session cookie
-function clearSession()
-{
-    // clear $_SESSION array
-    session_unset();
-
-    // delete session data on the server and send the client a new cookie
-    session_regenerate_id(true);
-}
-
-// start the session (or resume an existing one)
-// this function must be called before trying to get or set any session data!
 session_start();
 
-if (inputHas('reset')) {
-    if (inputGet('reset') == 'counter') {
+if (Input::has('reset')) {
+    if (Input::get('reset') == 'counter') {
         unset($_SESSION['view_count']);
-    } elseif (inputGet('reset') == 'session') {
-        clearSession();
+    } elseif (Input::get('reset') == 'session') {
+        Auth::logout();
     }
 }
 
@@ -32,7 +21,7 @@ if (inputHas('reset')) {
 <body>
     <h2>One Moment Please...</h2>
     <script>
-        <?= clearSession() ?>
+        <?= Auth::logout() ?>
         setTimeout(function(){
            window.location='login.php';
         }, 1000);

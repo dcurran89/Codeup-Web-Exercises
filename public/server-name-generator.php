@@ -1,32 +1,10 @@
-<?php
+<?php 
 
-function serverName($valueOne, $valueTwo){
+require_once 'Server.php';
 
-    $name = $valueOne . " " . $valueTwo;
-    return $name;
-}
-
-function pageController(){
-
-    $adjectives = ['Garrulous', 'Defamatory', 'Calamitous', 'Heuristic', 'Pernicious', 'Munificent', 'Bellicose', 'Adroit', 'Contumacious', 'Turgid'];
-    $nouns = ['People', 'Slangwhanger', 'Jackanapes', 'Hootenanny', 'Gaberlunzie', 'Panjandrum', 'Hoosegow', 'Snollygoster', 'Hobbledehoy', 'Fuddy-duddy'];
-    $data = array();
-
-    $randomAdj = mt_rand(0, sizeof($adjectives) - 1);
-    $adjValue = $adjectives[$randomAdj];
-
-    $randomNoun = mt_rand(0, sizeof($nouns) - 1);
-    $nounValue = $nouns[$randomNoun];
-
-    $data['message'] = serverName($adjValue, $nounValue);
-
-    return $data;
-}
-
-extract(pageController());
+extract(Server::pageController());
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
