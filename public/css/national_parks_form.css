@@ -1,0 +1,19 @@
+.park {
+    border: 1px solid rgba(192,192,192,0.7);
+    text-align: center;
+    background-color: rgba(192,192,192,0.7);
+}
+body {
+    background: url('/img/nationalPark.jpg');
+    background-size: cover;
+}
+.title {
+    text-align: center;
+}
+#next {
+    margin-left: 600px;
+}
+.form-group {
+    background-color: rgba(255,255,255,.5);
+    border-radius: 5px;
+}

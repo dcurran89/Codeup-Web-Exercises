@@ -1,0 +1,31 @@
+.park {
+    text-align: center;
+    vertical-align: center;
+    line-height: 100px;
+    background-color: rgba(192,192,192,0.7);
+    height: 100px;
+    width: 100px;
+    border: 1px solid rgba(192,192,192,0.7);
+    
+}
+.tableHead {
+    font-size: 20px;
+}
+.description {
+    text-align: center;
+    background-color: rgba(192,192,192,0.7);
+    height: 100px;
+    width: 100px;
+    overflow: scroll;
+    border: 1px solid rgba(192,192,192,0.7);
+}
+body {
+    background: url('/img/nationalPark2.jpg');
+    background-size: cover;
+}
+.title {
+    text-align: center;
+}
+#next {
+    margin-left: 600px;
+}
