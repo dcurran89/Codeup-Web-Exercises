@@ -6,7 +6,7 @@
     height: 100px;
     width: 100px;
     border: 1px solid rgba(192,192,192,0.7);
-    
+
 }
 .tableHead {
     font-size: 20px;
@@ -17,8 +17,19 @@
     height: 100px;
     width: 100px;
     overflow: scroll;
+    text-overflow: ellipsis;
     border: 1px solid rgba(192,192,192,0.7);
 }
+/*MAKES SCROLL BAR ALWAYS VISIBLE*/
+/*::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,0.1);
+}*/
 body {
     background: url('/img/nationalPark2.jpg');
     background-size: cover;

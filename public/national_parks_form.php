@@ -1,5 +1,5 @@
 <?php
-    // var_dump($_POST);
+    var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
 
     <div class="container">
       <h2>Submit a New Park</h2>
-      <form role="form" method="POST" action="/national_parks.php">
+      <form role="form" method="POST" action="national_parks_form.php">
         <div class="form-group">
           <!-- <label for="name">Name:</label> -->
           <input type="name" class="form-control" name = "name" placeholder="Name:" id="name">
