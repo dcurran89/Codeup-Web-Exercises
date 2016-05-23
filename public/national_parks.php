@@ -21,6 +21,7 @@ function pageController($db_connection){
     $statement->bindValue(':limitAmount', $limitAmount, PDO::PARAM_INT);
     $data['offsetAmount'] = (int)$data['offsetAmount'];
     $statement->bindValue(':offsetAmount', $data['offsetAmount'], PDO::PARAM_INT);
+    
     $statement->execute();
     $statementAll->execute();
 
